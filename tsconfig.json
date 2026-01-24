@@ -20,7 +20,7 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
 
-    /* Path alias - AGREGAR ESTO */
+    /* Path alias */
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
