@@ -6,12 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "build:check": "run-p type-check \"build-only {@}\" --",
-    "preview": "vite preview",
-    "build-only": "vite build",
-    "type-check": "vue-tsc --build --force",
-    "lint": "eslint . --fix --cache",
-    "format": "prettier --write --experimental-cli src/"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@laravel/echo-vue": "^2.3.0",
@@ -54,6 +49,6 @@
     "vue-tsc": "^3.2.2"
   },
   "engines": {
-    "node": "^20.19.0 || >=22.12.0"
+    "node": ">=18.0.0"
   }
 }
