@@ -1,24 +1,3 @@
-<script
-    setup
-    lang="ts"
->
-    import { ref } from 'vue'
-    import { RouterLink, RouterView } from 'vue-router'
-    import { Info, ShieldCheck, CreditCard, Menu, X } from 'lucide-vue-next'
-
-    const mobileMenuOpen = ref(false)
-
-    const routes = [
-        { path: '/informacion', name: 'Información', icon: Info },
-        // { path: '/garantia', name: 'Garantía', icon: ShieldCheck },
-        { path: '/pagar', name: 'Pagar', icon: CreditCard }
-    ]
-
-    const closeMobileMenu = () => {
-        mobileMenuOpen.value = false
-    }
-</script>
-
 <template>
 
     <div class="min-h-screen bg-slate-100 flex flex-col min-w-screen">
@@ -118,3 +97,34 @@
         </nav>
     </div>
 </template>
+
+<script
+    setup
+    lang="ts"
+>
+    import { ref, onMounted, onBeforeUnmount } from 'vue'
+    import { RouterLink, RouterView } from 'vue-router'
+    import { Info, CreditCard, Menu, X } from 'lucide-vue-next'
+    import { useAuthStore } from '@/stores/auth'
+    import { useEcho } from "@laravel/echo-vue";
+
+
+    const mobileMenuOpen = ref(false)
+
+    const routes = [
+        { path: '/informacion', name: 'Información', icon: Info },
+        // { path: '/garantia', name: 'Garantía', icon: ShieldCheck },
+        { path: '/pagar', name: 'Pagar', icon: CreditCard }
+    ]
+
+    const closeMobileMenu = () => {
+        mobileMenuOpen.value = false
+    }
+
+    const auth = useAuthStore();
+
+    useEcho(`App.Models.Credit.${auth.credit.id}`, "CreditUpdatedBroadcast", (e) => {
+        auth.fetchCredit(auth.credit?.reference);
+
+    });
+</script>

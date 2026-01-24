@@ -18,7 +18,7 @@ export const useAuthStore = defineStore(
     const isAuthenticated = computed(() => !!credit.value)
     const isLoading = ref(false)
 
-    const url = 'http://crediexpress.test/api'
+    const url = import.meta.env.VITE_BASE_URL
 
     const { showToast } = useNotifier()
 
@@ -81,7 +81,7 @@ export const useAuthStore = defineStore(
       fetchCredit,
     }
   },
-  {
-    persist: true,
-  },
+  // {
+  //   persist: true,
+  // },
 )
