@@ -66,15 +66,7 @@
                 </div>
             </div>
 
-            <!-- Footer -->
-            <!-- <div class="mt-6 text-center">
-                <p class="text-sm text-slate-400">
-                    ¿Necesitas ayuda? <a
-                        href="#"
-                        class="text-white hover:underline"
-                    >Contáctanos</a>
-                </p>
-            </div> -->
+
         </div>
     </div>
 </template>
@@ -83,18 +75,21 @@
     setup
     lang="ts"
 >
-    import { ref } from 'vue'
-    import { useRouter } from 'vue-router'
+    import { ref, onMounted } from 'vue'
+    import { useRouter, useRoute } from 'vue-router'
     import { useAuthStore } from '@/stores/auth'
     import { Button } from '@/components/ui/button'
     import { CreditCard, ArrowRight } from 'lucide-vue-next'
 
+
     const router = useRouter()
     const authStore = useAuthStore()
-
+    const route = useRoute();
     const referencia = ref('')
     const error = ref('')
     const loading = ref(false)
+
+
 
     const validarReferencia = async () => {
         error.value = ''
@@ -130,4 +125,14 @@
             validarReferencia()
         }
     }
+
+    onMounted(() => {
+        const ref = route.query?.referencia;
+        if (ref) {
+            referencia.value = ref;
+
+            validarReferencia();
+
+        }
+    });
 </script>

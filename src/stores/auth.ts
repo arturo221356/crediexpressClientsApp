@@ -81,7 +81,7 @@ export const useAuthStore = defineStore(
       fetchCredit,
     }
   },
-  // {
-  //   persist: true,
-  // },
+  {
+    persist: true,
+  },
 )

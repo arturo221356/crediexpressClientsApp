@@ -10,7 +10,7 @@ export function authGuard(
 
   if (!authStore.isAuthenticated) {
     // Redirigir a la página de referencia si no está autenticado
-    next('/referencia')
+    next('/')
   } else {
     // Permitir acceso
     next()

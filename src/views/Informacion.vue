@@ -59,7 +59,10 @@
             </div>
 
 
+
+
         </div>
+        <Button @click="logOut">Cerrar session</Button>
     </div>
 </template>
 
@@ -82,10 +85,13 @@
         ItemTitle,
     } from '@/components/ui/item'
     import { Badge } from '@/components/ui/badge'
+    import { useRouter } from 'vue-router';
 
     const auth = useAuthStore();
 
     const moneyFmt = new Intl.NumberFormat("es-MX", { style: "currency", currency: "MXN" });
+
+    const router = useRouter();
 
     const money = (v: unknown) => {
         const n = typeof v === "string" ? Number(v) : (v as number);
@@ -101,5 +107,10 @@
 
         return latest_payment_secuence * 100 / installments;
     });
+
+    const logOut = () => {
+        router.push('/');
+        auth.clearCredit();
+    }
 
 </script>
