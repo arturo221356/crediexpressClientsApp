@@ -6,10 +6,10 @@
             <div class="px-4 md:px-8">
                 <div class="flex items-center justify-between h-16">
                     <div class="flex items-center gap-2">
-                        <CreditCard
-                            class="text-slate-900"
-                            :size="28"
-                        />
+                        <div class="rounded-full flex h-10 w-10">
+
+                            <img src="../assets/logo.png" />
+                        </div>
                         <h1 class="text-xl font-bold text-slate-900">CrediExpress</h1>
                     </div>
 

@@ -4,14 +4,11 @@
             <div class="bg-white rounded-2xl shadow-2xl p-8 space-y-6">
                 <!-- Logo y título -->
                 <div class="text-center space-y-4">
-                    <div class="inline-flex items-center justify-center w-16 h-16 bg-slate-900 rounded-full">
-                        <CreditCard
-                            class="text-white"
-                            :size="32"
-                        />
+                    <div class="inline-flex items-center justify-center   ">
+                        <img src="../assets/crediexpress-logo-no-background.jpeg" />
                     </div>
                     <div>
-                        <h1 class="text-3xl font-bold text-slate-900">CrediExpress</h1>
+
                         <p class="text-slate-600 mt-2">Ingresa tu referencia de crédito</p>
                     </div>
                 </div>
