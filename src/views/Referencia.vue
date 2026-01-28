@@ -5,7 +5,7 @@
                 <!-- Logo y título -->
                 <div class="text-center space-y-4">
                     <div class="inline-flex items-center justify-center   ">
-                        <img src="../assets/crediexpress-logo-no-background.jpeg" />
+                        <img src="../assets/crediexpress-logo-no-background.png" />
                     </div>
                     <div>
 
