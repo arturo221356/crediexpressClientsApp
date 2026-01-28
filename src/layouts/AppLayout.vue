@@ -102,7 +102,7 @@
     setup
     lang="ts"
 >
-    import { ref, onMounted, onBeforeUnmount } from 'vue'
+    import { ref, onMounted } from 'vue'
     import { RouterLink, RouterView } from 'vue-router'
     import { Info, CreditCard, Menu, X } from 'lucide-vue-next'
     import { useAuthStore } from '@/stores/auth'
@@ -123,8 +123,15 @@
 
     const auth = useAuthStore();
 
-    useEcho(`App.Models.Credit.${auth.credit.id}`, "CreditUpdatedBroadcast", (e) => {
-        auth.fetchCredit(auth.credit?.reference);
+    const refresh = async () => {
+        await auth.fetchCredit(auth.credit?.reference);
+    }
 
+    useEcho(`App.Models.Credit.${auth.credit.id}`, "CreditUpdatedBroadcast", (e) => {
+        refresh();
     });
+
+    onMounted(async () => {
+        await refresh();
+    })
 </script>

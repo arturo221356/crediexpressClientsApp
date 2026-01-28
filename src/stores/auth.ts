@@ -59,7 +59,7 @@ export const useAuthStore = defineStore(
         }
 
         setCredit(data)
-        showToast('success', 'Crédito encontrado', 'Datos cargados correctamente.')
+
         return true
       } catch (error) {
         // Manejo de errores de red o parsing
