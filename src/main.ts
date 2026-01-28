@@ -7,6 +7,7 @@ import App from './App.vue'
 import router from './router'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 import { configureEcho } from '@laravel/echo-vue'
+import axios from 'axios'
 
 const app = createApp(App)
 
@@ -20,34 +21,31 @@ configureEcho({
   wsHost: import.meta.env.VITE_REVERB_HOST,
   // wsPort: import.meta.env.VITE_REVERB_PORT,
   // enabledTransports: ['ws', 'wss'],
-  authorizer: (channel) => {
+  enabledTransports: ['ws', 'wss'],
+
+  authorizer: (channel, options) => {
     return {
-      authorize: async (socketId, callback) => {
-        try {
-          const response = await fetch('https://www.crediexpress.net/broadcasting/auth', {
-            method: 'POST',
-            credentials: 'include', // ← Envía cookies de sesión
-            headers: {
-              Accept: 'application/json',
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
+      authorize: (socketId, callback) => {
+        axios
+          .post(
+            'https://www.crediexpress.net/broadcasting/auth',
+            {
               socket_id: socketId,
               channel_name: channel.name,
-            }),
+            },
+            {
+              headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Content-type': 'application/json',
+              },
+            },
+          )
+          .then((response) => {
+            callback(false, response.data)
           })
-
-          if (!response.ok) {
-            const errorText = await response.text()
-            throw new Error(`Auth failed: ${response.status} - ${errorText}`)
-          }
-
-          const data = await response.json()
-          callback(null, data)
-        } catch (error) {
-          console.error('Broadcasting auth error:', error)
-          callback(error, null)
-        }
+          .catch((error) => {
+            callback(true, error)
+          })
       },
     }
   },

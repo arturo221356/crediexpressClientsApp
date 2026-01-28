@@ -127,9 +127,9 @@
         await auth.fetchCredit(auth.credit?.reference);
     }
 
-    useEcho(`App.Models.Credit.${auth.credit.id}`, "CreditUpdatedBroadcast", (e) => {
-        refresh();
-    });
+    // useEcho(`App.Models.Credit.${auth.credit.id}`, "CreditUpdatedBroadcast", (e) => {
+    //     refresh();
+    // });
 
     onMounted(async () => {
         await refresh();

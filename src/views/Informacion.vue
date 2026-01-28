@@ -1,6 +1,21 @@
 <template>
     <div class="space-y-4">
-        <h2 class="text-3xl font-bold">Hola {{ auth.credit?.client?.name }}</h2>
+        <div class="flex gap-2 w-full justify-between">
+
+            <h2 class="text-3xl font-bold">Hola {{ auth.credit?.client?.name }}</h2>
+            <div>
+
+                <Button
+                    @click="refresh"
+                    :disabled="loading"
+                > Actualizar
+                    <Spinner
+                        class="animate-spin"
+                        v-if="loading"
+                    />
+                </Button>
+            </div>
+        </div>
         <div class="bg-white rounded-lg border p-6 space-y-4">
             <p class="text-gray-600">
                 Aqui puedes ver la informacion de tu credito
@@ -75,7 +90,7 @@
     import { Button } from '@/components/ui/button';
     import dayjs from 'dayjs';
     import { Progress } from '@/components/ui/progress'
-    import { computed } from 'vue';
+    import { computed, ref } from 'vue';
     import {
         Item,
         ItemActions,
@@ -86,6 +101,7 @@
     } from '@/components/ui/item'
     import { Badge } from '@/components/ui/badge'
     import { useRouter } from 'vue-router';
+    import { Spinner } from '@/components/ui/spinner'
 
     const auth = useAuthStore();
 
@@ -111,6 +127,14 @@
     const logOut = () => {
         router.push('/');
         auth.clearCredit();
+    }
+    const loading = ref(false);
+
+    const refresh = async () => {
+        loading.value = true;
+        await auth.fetchCredit(auth.credit?.reference);
+        loading.value = false;
+
     }
 
 </script>
