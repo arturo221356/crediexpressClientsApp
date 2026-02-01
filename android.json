@@ -1,0 +1,8 @@
+{
+  "release": {
+    "keystorePath": "android/app/crediexpress-app.jks",
+    "keystorePassword": "221356",
+    "keystoreKeyAlias": "app",
+    "keystoreKeyPassword": "221356"
+  }
+}
