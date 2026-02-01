@@ -8,12 +8,14 @@ import router from './router'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 import { configureEcho } from '@laravel/echo-vue'
 import axios from 'axios'
+import { piniaCapacitorPersist } from 'pinia-plugin-capacitor-persist'
 
 const app = createApp(App)
 
 const pinia = createPinia()
 
 pinia.use(piniaPluginPersistedstate)
+pinia.use(piniaCapacitorPersist)
 
 configureEcho({
   broadcaster: 'reverb',
