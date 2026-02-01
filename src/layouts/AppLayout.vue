@@ -104,7 +104,7 @@
 >
     import { ref, onMounted } from 'vue'
     import { RouterLink, RouterView } from 'vue-router'
-    import { Info, CreditCard, Menu, X } from 'lucide-vue-next'
+    import { Info, CreditCard, Menu, X, Handshake } from 'lucide-vue-next'
     import { useAuthStore } from '@/stores/auth'
     import { useEcho } from "@laravel/echo-vue";
 
@@ -114,7 +114,8 @@
     const routes = [
         { path: '/informacion', name: 'Información', icon: Info },
         // { path: '/garantia', name: 'Garantía', icon: ShieldCheck },
-        { path: '/pagar', name: 'Pagar', icon: CreditCard }
+        { path: '/pagar', name: 'Pagar', icon: CreditCard },
+        { path: '/condiciones', name: 'Condiciones', icon: Handshake }
     ]
 
     const closeMobileMenu = () => {

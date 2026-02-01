@@ -5,6 +5,7 @@ import Garantia from '@/views/Garantia.vue'
 import Pagar from '@/views/Pagar.vue'
 import Referencia from '@/views/Referencia.vue'
 import { authGuard } from './guards'
+import Condiciones from '@/views/Condiciones.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -37,6 +38,11 @@ const router = createRouter({
           path: 'pagar',
           name: 'pagar',
           component: Pagar,
+        },
+        {
+          path: 'condiciones',
+          name: 'condiciones',
+          component: Condiciones,
         },
       ],
     },

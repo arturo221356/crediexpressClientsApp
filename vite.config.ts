@@ -10,9 +10,9 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
       manifest: {
-        name: 'Mi Aplicación Vue',
-        short_name: 'VueApp',
-        description: 'Mi aplicación Vue con PWA',
+        name: 'Crediexpress App',
+        short_name: 'Crediexpress',
+        description: 'Aplicacion de clientes crediexpress',
         theme_color: '#ffffff',
         background_color: '#ffffff',
         display: 'standalone',
