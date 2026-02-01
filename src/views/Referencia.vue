@@ -124,6 +124,10 @@
     }
 
     onMounted(() => {
+        if (authStore.credit) {
+            router.push('/informacion');
+        }
+
         const ref = route.query?.referencia;
         if (ref) {
             referencia.value = ref;
