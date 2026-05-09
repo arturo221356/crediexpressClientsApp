@@ -30,11 +30,25 @@
                 </div>
                 <div class="p-4 bg-slate-50 rounded-lg  grid  w-full">
 
-                    <div class="flex  justify-between w-full">
+                    <div
+                        class="flex  justify-between w-full"
+                        v-if="auth.credit.due_at"
+                    >
                         <p class="text-sm text-gray-600">Fecha limite de pago</p>
                         <h3 class="font-semibold mb-2">{{ dayjs(auth.credit.due_at).format('DD/MM/YY') }}</h3>
                     </div>
-                    <div class="flex justify-between w-full">
+                    <div
+                        class="flex  justify-between w-full"
+                        v-else
+                    >
+                        <p class="font-semibold mb-2 text-gray-600">Tu plazo ha terminado</p>
+
+                    </div>
+
+                    <div
+                        class="flex justify-between w-full"
+                        v-if="auth.credit.due_at"
+                    >
 
                         <p class="text-sm text-gray-600">Parcialidad</p>
                         <h3 class="font-semibold mb-2">{{ money(auth.credit.installment_amount) }}</h3>
