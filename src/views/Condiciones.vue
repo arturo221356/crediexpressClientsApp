@@ -143,7 +143,7 @@
     <div class="my-4">
         <div class="flex items-center gap-2 text-green-600 mb-4">
             <Handshake :size="32" />
-            <h3 class="text-xl font-semibold">Terminos y condiciones</h3>
+            <h3 class="text-xl font-semibold">Terminos y condiciones </h3>
         </div>
         <div class="bg-white rounded-lg border p-6 space-y-4">
 
@@ -160,7 +160,7 @@
                     <p>
                         Al aceptar estos Términos y Condiciones, usted ("el Cliente") reconoce y
                         acepta las siguientes disposiciones relacionadas con la adquisición de equipos
-                        celulares a crédito.
+                        celulares a crédito .
                     </p>
 
 
