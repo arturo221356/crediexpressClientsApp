@@ -1,4 +1,4 @@
-package com.crediexpress.clients.app;
+package com.crediexpress.app;
 
 import com.getcapacitor.BridgeActivity;
 

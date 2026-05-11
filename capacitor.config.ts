@@ -1,8 +1,8 @@
 import type { CapacitorConfig } from '@capacitor/cli'
 
 const config: CapacitorConfig = {
-  appId: 'com.crediexpress.clients.app',
-  appName: 'crediexpressclientsapp',
+  appId: 'com.crediexpress.app',
+  appName: 'crediexpress',
   webDir: 'dist',
   android: {
     release: {
